@@ -1,0 +1,27 @@
+{% extends "layout.jinja2" %}
+
+{% block content%}
+    <h1>Encoding</h1>
+
+    <form>
+        <label for="src_text">Input:</label>
+        <textarea name="src_text" id="src_text" cols="30" rows="10"></textarea>
+
+        <label for="algo">Encoding:</label>
+        <div class="uk-button uk-form-select" data-uk-form-select>
+            <span></span>
+            <select name="encoding_algo" id="algo">
+                {% for enc, enc_name in encodings.items() %}
+                    <option value="{{ enc }}">{{ enc_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button>Encode</button>
+        <button>Decode</button>
+    </form>
+
+    <div class="result_container">
+        <textarea id="resulting_text" cols="30" rows="10"></textarea>
+    </div>
+{% endblock content %}
